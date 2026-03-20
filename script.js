@@ -94,7 +94,7 @@ async function openDonateModal(amount) {
     modal.innerHTML = `
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <h3>Donate $${amount} USDT</h3>
-    <p>Send exactly <strong>${amount} USDT</strong> to the address below 💜</p>
+    <p>Send exactly <strong>${amount} USDT</strong> to the address below <i class="fa-solid fa-heart" style="color: #0ef071;"></i></p>
     
     <div class="network-selector">
       <button class="network-btn active" data-network="trc20" onclick="switchNetwork('trc20', ${amount})">TRC20 <span class="network-tag">Cheapest</span></button>
@@ -112,7 +112,7 @@ async function openDonateModal(amount) {
       <label for="donorMessage">Leave a Message (optional)</label>
       <textarea id="donorMessage" placeholder="Keep building! 🚀"></textarea>
       <button class="btn-primary" style="width:100%; justify-content:center;" onclick="registerDonation(${amount})">
-        ✅ I've Sent the USDT
+        <i class="fa-solid fa-check"></i> I've Sent the USDT
       </button>
     </div>
   `;
@@ -143,8 +143,8 @@ async function fetchWalletAddress(network) {
         <div class="address-label">USDT Deposit Address (${network.toUpperCase()})</div>
         <div class="address-value" id="addressText">${addr}</div>
         <div style="display: flex; gap: 8px; margin-top: 12px;">
-            <button class="copy-btn" onclick="copyAddress()" style="flex: 1; margin: 0;">📋 Copy Address</button>
-            <a href="${fallbackUrl}" id="moonpayBtn" target="_blank" class="copy-btn" style="flex: 1; margin: 0; background: #8b5cf6; text-decoration: none; display: flex; align-items: center; justify-content: center;">💳 Pay with Card</a>
+            <button class="copy-btn" onclick="copyAddress()" style="flex: 1; margin: 0;"><i class="fa-regular fa-clipboard"></i> Copy Address</button>
+            <a href="${fallbackUrl}" id="moonpayBtn" target="_blank" class="copy-btn" style="flex: 1; margin: 0; background: #0ef071; text-decoration: none; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-credit-card"></i> Pay with Card</a>
         </div>
         <div style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 8px;">
             Card payments powered by MoonPay. Fiat converts to USDT automatically.
@@ -195,8 +195,8 @@ function copyAddress() {
     if (walletAddress) {
         navigator.clipboard.writeText(walletAddress);
         const btn = document.querySelector('.copy-btn');
-        btn.textContent = '✅ Copied!';
-        setTimeout(() => btn.textContent = '📋 Copy Address', 2000);
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="fa-regular fa-clipboard"></i> Copy Address', 2000);
     }
 }
 
@@ -339,7 +339,7 @@ async function loadDonors() {
         if (!list) return;
 
         if (json.status === 'success' && json.data.length > 0) {
-            const colors = ['#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#3b82f6'];
+            const colors = ['#ffbe0b', '#2563EB', '#38b000', '#ff006e', '#8338ec'];
 
             list.innerHTML = json.data.map((d, i) => {
                 const initial = (d.donor_name || 'A')[0].toUpperCase();
