@@ -1,7 +1,7 @@
 {
   "name": "fundgreaze-server",
   "version": "1.0.0",
-  "description": "Backend server for FundGreaze campaign — Busha USDT payments",
+  "description": "Backend server for GoFundGreaze campaign — Busha USDT payments",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

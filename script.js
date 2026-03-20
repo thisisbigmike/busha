@@ -225,15 +225,18 @@ async function registerDonation(amount) {
     <div style="text-align: center; padding: 20px 0;">
       <div style="font-size: 3rem; margin-bottom: 16px;">🎉</div>
       <h3 style="margin-bottom: 12px;">Thank You${name && name !== 'Anonymous' ? ', ' + name : ''}!</h3>
+      <div style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 50px; background: rgba(255, 190, 11, 0.15); color: #ffbe0b; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+        <span class="status-dot pending-dot"></span> Pending Confirmation
+      </div>
       <p style="color: var(--text-secondary); margin-bottom: 8px;">
         Your donation of <strong style="background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${amount} USDT</strong> 
-        will be confirmed once the transaction is detected on-chain.
+        has been registered and is awaiting on-chain confirmation.
       </p>
       <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">
-        Busha will notify us automatically via webhook when your transfer arrives.
+        Status will automatically update to <span style="color: #38b000; font-weight: 600;">✓ Confirmed</span> once Busha detects your transfer on the blockchain.
       </p>
       <button onclick="closeModal()" 
-        style="padding: 14px 36px; background: var(--gradient-main); border: none; border-radius: 50px; color: white; font-weight: 600; font-size: 1rem; cursor: pointer; font-family: 'Inter', sans-serif;">
+        style="padding: 14px 36px; background: var(--gradient-main); border: none; border-radius: 50px; color: #111; font-weight: 600; font-size: 1rem; cursor: pointer; font-family: 'Inter', sans-serif;">
         Close
       </button>
     </div>
@@ -349,11 +352,15 @@ async function loadDonors() {
             list.innerHTML = json.data.map((d, i) => {
                 const initial = (d.donor_name || 'A')[0].toUpperCase();
                 const timeAgo = getTimeAgo(d.created_at);
+                const isPending = d.status === 'pending';
+                const statusBadge = isPending 
+                    ? `<span class="status-badge pending"><span class="status-dot pending-dot"></span>Pending</span>`
+                    : `<span class="status-badge confirmed"><span class="status-dot confirmed-dot"></span>Confirmed</span>`;
                 return `
           <div class="supporter-card reveal visible">
             <div class="supporter-avatar" style="background: ${colors[i % colors.length]};">${initial}</div>
             <div class="supporter-info">
-              <div class="supporter-name">${d.donor_name || 'Anonymous'}</div>
+              <div class="supporter-name">${d.donor_name || 'Anonymous'} ${statusBadge}</div>
               <div class="supporter-msg">"${d.message || 'No message'}"</div>
             </div>
             <div>

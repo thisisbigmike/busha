@@ -1,8 +1,8 @@
-# 🚀 FundGreaze 
+# 🚀 GoFundGreaze 
 
-FundGreaze is a Web3-native crowdfunding platform (like a decentralized GoFundMe) built to seamlessly bridge the gap between Fiat and Crypto donations. 
+GoFundGreaze is a Web3-native crowdfunding platform (like a decentralized GoFundMe) built to seamlessly bridge the gap between Fiat and Crypto donations. 
 
-Powered by **Busha** (for enterprise-grade crypto payment routing and webhooks) and **MoonPay** (for seamless Fiat-to-Crypto onramping), FundGreaze allows developers to raise funds for their journey using USDT, while providing their supporters with the easiest possible checkout experience—whether they are crypto-native or using a standard credit card.
+Powered by **Busha** (for enterprise-grade crypto payment routing and webhooks) and **MoonPay** (for seamless Fiat-to-Crypto onramping), GoFundGreaze allows developers to raise funds for their journey using USDT, while providing their supporters with the easiest possible checkout experience—whether they are crypto-native or using a standard credit card.
 
 ## ✨ Features
 

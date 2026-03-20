@@ -281,7 +281,7 @@ app.get('/api/health', (req, res) => {
 
 // ===== START =====
 app.listen(PORT, () => {
-    console.log(`\n🚀 FundGreaze server running at http://localhost:${PORT}`);
+    console.log(`\n🚀 GoFundGreaze server running at http://localhost:${PORT}`);
     console.log(`📡 Webhook URL: http://localhost:${PORT}/api/webhooks/busha`);
     console.log(`🌐 Frontend: http://localhost:${PORT}\n`);
 });
