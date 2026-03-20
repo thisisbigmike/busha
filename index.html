@@ -7,7 +7,7 @@
     <title>Go Fund Greaze</title>
     <meta name="description"
         content="Help fund Greaze's journey as a web and blockchain developer. Support courses, hardware, hackathons, and certifications." />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'><i class="fa-solid fa-rocket"></i></text></svg>" />
@@ -26,7 +26,12 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
-            <button class="nav-cta" data-action="fund">Fund Now</button>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
+                <button class="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; font-size: 1.25rem; color: var(--text-primary); cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.15) rotate(15deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="nav-cta" data-action="fund">Fund Now</button>
+            </div>
             <button class="hamburger" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -314,7 +319,17 @@
                     <div class="skill-level">Intermediate</div>
                 </div>
                 <div class="skill-badge reveal">
-                    <div class="skill-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397 311" width="1em" height="1em">
+                            <defs>
+                                <linearGradient id="solanaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00FFA3" />
+                                    <stop offset="100%" stop-color="#DC1FFF" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#solanaGrad)" d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7zM64.6 3.8C67 1.4 70.3 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8zM330.1 117.1c-2.4-2.4-5.7-3.8-9.2-3.8H3.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/>
+                        </svg>
+                    </div>
                     <div class="skill-name">Solana</div>
                     <div class="skill-level">Intermediate</div>
                 </div>

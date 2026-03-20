@@ -452,3 +452,52 @@ document.addEventListener('DOMContentLoaded', () => {
         loadDonors();
     }, 10000);
 });
+
+// ===== THEME TOGGLE =====
+const themeToggleBtn = document.querySelector('.theme-toggle');
+const htmlTag = document.documentElement;
+
+// Function to immediately setup theme with no transitions during initial load
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        htmlTag.setAttribute('data-theme', 'dark');
+        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+        htmlTag.removeAttribute('data-theme');
+        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+}
+
+function initializeTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (storedTheme) {
+        applyTheme(storedTheme);
+    } else if (systemDark) {
+        applyTheme('dark');
+    }
+}
+
+// Run immediately before page fully repaints
+initializeTheme();
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = htmlTag.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        
+        // Add a smooth transition class to body temporarily when clicking button
+        document.body.style.transition = 'background-color 0.4s, color 0.4s';
+        setTimeout(() => document.body.style.transition = '', 400);
+
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// Listen for system theme changes if not overridden by user
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
+});

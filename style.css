@@ -41,8 +41,27 @@
     --radius-xl: 8px;
 
     /* Shadows */
-    --shadow-glow: 6px 6px 0px #111111;
     --shadow-card: 6px 6px 0px #111111;
+    --body-bg: linear-gradient(rgba(240, 240, 240, 0.95), rgba(240, 240, 240, 0.95)), url('bg-mural.jpg') center/cover fixed;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #000000;
+    --bg-card: #18181b;
+    --bg-card-hover: #27272a;
+    --glass: rgba(10, 10, 10, 0.85);
+    --body-bg: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), url('bg-mural.jpg') center/cover fixed;
+    --glass-border: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --shadow-glow: 6px 6px 0px #ffffff;
+    --shadow-card: 6px 6px 0px #ffffff;
+}
+
+[data-theme="dark"] .nav.scrolled {
+    background: rgba(10, 10, 10, 0.9);
 }
 
 html {
@@ -56,7 +75,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    background: linear-gradient(rgba(240, 240, 240, 0.95), rgba(240, 240, 240, 0.95)), url('bg-mural.jpg') center/cover fixed;
+    background: var(--body-bg);
 }
 
 h1,
@@ -138,9 +157,9 @@ img {
 .nav-cta {
     padding: 10px 24px;
     background: var(--gradient-main);
-    border: 2px solid #111; box-shadow: 3px 3px 0px #111; color: #111; font-weight: 800;
+    border: 2px solid var(--glass-border); box-shadow: 3px 3px 0px var(--glass-border); color: var(--text-primary); font-weight: 800;
     border-radius: 50px;
-    color: #111111;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
@@ -150,7 +169,7 @@ img {
 
 .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 6px 6px 0px #111; transform: translate(-2px, -2px);;
+    box-shadow: 6px 6px 0px var(--glass-border); transform: translate(-2px, -2px);;
 }
 
 .hamburger {
@@ -236,7 +255,7 @@ img {
     gap: 8px;
     padding: 8px 18px;
     background: var(--glass);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: 50px;
     font-size: 0.85rem;
     color: var(--accent-cyan);
@@ -300,9 +319,9 @@ img {
     gap: 10px;
     padding: 16px 36px;
     background: var(--gradient-main);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111; color: #111; font-weight: 800;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border); color: var(--text-primary); font-weight: 800;
     border-radius: 50px;
-    color: #111111;
+    color: var(--text-primary);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -312,7 +331,7 @@ img {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 6px 6px 0px #111; transform: translate(-2px, -2px); border-color: #111;;
+    box-shadow: 6px 6px 0px var(--glass-border); transform: translate(-2px, -2px); border-color: var(--text-primary);;
 }
 
 .btn-secondary {
@@ -321,7 +340,7 @@ img {
     gap: 10px;
     padding: 16px 36px;
     background: var(--glass);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: 50px;
     color: var(--text-primary);
     font-size: 1rem;
@@ -374,7 +393,7 @@ img {
 
 .hero-card-inner {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-xl);
     padding: 36px;
     backdrop-filter: blur(20px);
@@ -494,14 +513,14 @@ img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 2px solid #111;;
+    border: 2px solid var(--glass-border);;
     margin-left: -10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #111111;
+    color: var(--text-primary);
 }
 
 .backers-avatars .avatar:first-child {
@@ -567,7 +586,7 @@ section {
 
 .about-card {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-lg);
     padding: 36px;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -649,7 +668,7 @@ section {
 
 .goal-content {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-lg);
     padding: 28px;
     flex: 1;
@@ -694,7 +713,7 @@ section {
 
 .tier-card {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-lg);
     padding: 32px 24px;
     text-align: center;
@@ -717,7 +736,7 @@ section {
 .tier-card.selected {
     border-color: var(--accent-purple);
     transform: translateY(-8px);
-    box-shadow: 8px 8px 0px #111; transform: translate(-2px, -2px);;
+    box-shadow: 8px 8px 0px var(--glass-border); transform: translate(-2px, -2px);;
 }
 
 .tier-card:hover::before,
@@ -740,7 +759,7 @@ section {
     padding: 4px 10px;
     background: var(--gradient-main);
     border-radius: 50px;
-    color: #111111;
+    color: var(--text-primary);
 }
 
 .tier-emoji {
@@ -795,7 +814,7 @@ section {
     margin-top: 20px;
     padding: 12px 20px;
     border-radius: 50px;
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     background: transparent;
     color: var(--text-primary);
     font-weight: 600;
@@ -833,7 +852,7 @@ section {
     align-items: center;
     gap: 12px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: 50px;
     padding: 8px 8px 8px 24px;
     transition: border-color 0.3s;
@@ -869,7 +888,7 @@ section {
     background: var(--gradient-main);
     border: none;
     border-radius: 50px;
-    color: #111111;
+    color: var(--text-primary);
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s;
@@ -891,7 +910,7 @@ section {
 
 .skill-badge {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-md);
     padding: 24px 16px;
     text-align: center;
@@ -902,7 +921,7 @@ section {
 .skill-badge:hover {
     transform: translateY(-6px) scale(1.02);
     border-color: var(--accent-purple);
-    box-shadow: 6px 6px 0px #111; transform: translate(-2px, -2px); border-color: #111;;
+    box-shadow: 6px 6px 0px var(--glass-border); transform: translate(-2px, -2px); border-color: var(--text-primary);;
 }
 
 .skill-icon {
@@ -939,7 +958,7 @@ section {
     align-items: center;
     gap: 16px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-lg);
     padding: 20px 24px;
     transition: transform 0.3s;
@@ -959,7 +978,7 @@ section {
     justify-content: center;
     font-weight: 700;
     font-size: 1.1rem;
-    color: #111111;
+    color: var(--text-primary);
 }
 
 .supporter-info {
@@ -1002,7 +1021,7 @@ section {
 
 .faq-item {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: border-color 0.3s;
@@ -1132,7 +1151,7 @@ section {
     height: 40px;
     border-radius: 50%;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1178,7 +1197,7 @@ section {
 
 .modal {
     background: var(--bg-secondary);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-xl);
     padding: 40px;
     max-width: 480px;
@@ -1220,7 +1239,7 @@ section {
 
 .modal-amount-display {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-md);
     padding: 20px;
     text-align: center;
@@ -1249,7 +1268,7 @@ section {
     width: 100%;
     padding: 14px 18px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-sm);
     color: var(--text-primary);
     font-size: 0.95rem;
@@ -1267,7 +1286,7 @@ section {
     width: 100%;
     padding: 14px 18px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-sm);
     color: var(--text-primary);
     font-size: 0.95rem;
@@ -1299,7 +1318,7 @@ section {
     flex: 1;
     padding: 10px 12px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-sm);
     color: var(--text-secondary);
     font-size: 0.85rem;
@@ -1331,7 +1350,7 @@ section {
 /* ===== WALLET ADDRESS BOX (MODAL) ===== */
 .wallet-address-box {
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-md);
     padding: 20px;
     margin-bottom: 20px;
@@ -1364,7 +1383,7 @@ section {
     background: var(--gradient-main);
     border: none;
     border-radius: 50px;
-    color: #111111;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.85rem;
     cursor: pointer;
@@ -1397,7 +1416,7 @@ section {
     width: 100%;
     padding: 14px 18px;
     background: var(--bg-card);
-    border: 3px solid #111; box-shadow: 4px 4px 0px #111;;
+    border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);;
     border-radius: var(--radius-sm);
     color: var(--text-primary);
     font-size: 0.95rem;
