@@ -1,0 +1,6 @@
+
+🚀 FundGreaze server running at http://localhost:3001
+📡 Webhook URL: http://localhost:3001/api/webhooks/busha
+🌐 Frontend: http://localhost:3001
+
+Balance fetch error: request to https://api.busha.co/v1/balances failed, reason: getaddrinfo EAI_AGAIN api.busha.co

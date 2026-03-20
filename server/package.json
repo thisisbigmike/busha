@@ -1,0 +1,17 @@
+{
+  "name": "fundgreaze-server",
+  "version": "1.0.0",
+  "description": "Backend server for FundGreaze campaign — Busha USDT payments",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
+  }
+}
