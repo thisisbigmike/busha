@@ -1,5 +1,10 @@
 // ===== CONFIG =====
-const API_BASE = window.location.origin + '/api';
+// If you deployed your frontend separately (e.g. to Vercel/Netlify),
+// put your deployed backend URL here instead of the window.location fallback.
+const PROD_BACKEND_URL = ''; // e.g. 'https://my-backend.onrender.com'
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? 'http://localhost:3001/api' 
+    : (PROD_BACKEND_URL ? PROD_BACKEND_URL + '/api' : window.location.origin + '/api');
 
 // ===== DOM ELEMENTS =====
 const nav = document.querySelector('.nav');
