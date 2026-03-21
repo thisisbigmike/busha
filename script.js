@@ -263,10 +263,29 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
+// ===== HAMBURGER MENU =====
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navActions = document.querySelector('.nav-actions');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        if (navActions) navActions.classList.toggle('active');
+    });
+}
+
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        // Close mobile menu if open
+        if (hamburger) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            if (navActions) navActions.classList.remove('active');
+        }
         const target = document.querySelector(this.getAttribute('href'));
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });

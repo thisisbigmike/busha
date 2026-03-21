@@ -1540,13 +1540,66 @@ section {
         --section-padding: 64px 0;
     }
 
-    .nav-links,
-    .nav-cta {
+    .nav .container {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        order: 10;
+        padding: 16px 0 8px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+    }
+
+    .nav-actions {
+        display: none !important;
+        width: 100%;
+        order: 11;
+        padding: 12px 0 4px;
+        justify-content: center !important;
+    }
+
+    .nav-actions.active {
+        display: flex !important;
+    }
+
+    .nav-actions .nav-cta {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
     }
 
     .hamburger {
         display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
     .about-grid {
