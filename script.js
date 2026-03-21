@@ -22,9 +22,16 @@ let walletAddress = '';
 let currentNetwork = 'trc20';
 
 // ===== NAV SCROLL EFFECT =====
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-});
+    if (!scrollTicking) {
+        requestAnimationFrame(() => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+            scrollTicking = false;
+        });
+        scrollTicking = true;
+    }
+}, { passive: true });
 
 // ===== PROGRESS BAR ANIMATION =====
 const observerProgress = new IntersectionObserver((entries) => {
@@ -338,10 +345,17 @@ async function loadCampaignData() {
     }
 }
 
+let lastDonorsJson = '';
+
 async function loadDonors() {
     try {
         const res = await fetch(`${API_BASE}/donors?limit=5`);
         const json = await res.json();
+
+        // Skip re-render if data hasn't changed
+        const jsonStr = JSON.stringify(json);
+        if (jsonStr === lastDonorsJson) return;
+        lastDonorsJson = jsonStr;
 
         const list = document.querySelector('.supporters-list');
         if (!list) return;
@@ -453,11 +467,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCampaignData();
     loadDonors();
 
-    // Poll for real-time updates every 10 seconds
+    // Poll for real-time updates every 30 seconds
     setInterval(() => {
         loadCampaignData();
         loadDonors();
-    }, 10000);
+    }, 30000);
 });
 
 // ===== THEME TOGGLE =====

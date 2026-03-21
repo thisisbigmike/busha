@@ -42,7 +42,7 @@
 
     /* Shadows */
     --shadow-card: 6px 6px 0px #111111;
-    --body-bg: linear-gradient(rgba(240, 240, 240, 0.95), rgba(240, 240, 240, 0.95)), url('bg-mural.jpg') center/cover fixed;
+    --body-bg: linear-gradient(rgba(240, 240, 240, 0.95), rgba(240, 240, 240, 0.95)), url('bg-mural.jpg') center/cover scroll;
 }
 
 [data-theme="dark"] {
@@ -51,7 +51,7 @@
     --bg-card: #18181b;
     --bg-card-hover: #27272a;
     --glass: rgba(10, 10, 10, 0.85);
-    --body-bg: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), url('bg-mural.jpg') center/cover fixed;
+    --body-bg: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), url('bg-mural.jpg') center/cover scroll;
     --glass-border: #000000;
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
@@ -211,6 +211,7 @@ img {
     background: radial-gradient(circle, rgba(14, 240, 113, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
+    will-change: transform;
 }
 
 .hero::after {
@@ -223,6 +224,7 @@ img {
     background: radial-gradient(circle, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 10s ease-in-out infinite reverse;
+    will-change: transform;
 }
 
 @keyframes float {
@@ -261,7 +263,6 @@ img {
     font-size: 0.85rem;
     color: var(--accent-cyan);
     margin-bottom: 28px;
-    backdrop-filter: blur(10px);
 }
 
 .hero-badge .dot {
@@ -347,8 +348,7 @@ img {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s;
-    backdrop-filter: blur(10px);
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
     font-family: 'Inter', sans-serif;
 }
 
@@ -397,7 +397,6 @@ img {
     border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);
     border-radius: var(--radius-xl);
     padding: 36px;
-    backdrop-filter: blur(20px);
     position: relative;
     overflow: hidden;
 }
@@ -719,7 +718,7 @@ section {
     padding: 32px 24px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
 }
@@ -915,7 +914,7 @@ section {
     border-radius: var(--radius-md);
     padding: 24px 16px;
     text-align: center;
-    transition: all 0.4s;
+    transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
     cursor: default;
 }
 
@@ -1203,7 +1202,7 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
-    transition: all 0.3s;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
 }
 
 .footer-social-link:hover {
@@ -1490,11 +1489,13 @@ section {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
 }
 
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
 }
 
 /* ===== KEYFRAMES ===== */
